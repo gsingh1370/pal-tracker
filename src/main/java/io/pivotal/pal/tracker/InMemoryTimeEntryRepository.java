@@ -6,7 +6,6 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 
-@Repository
 public class InMemoryTimeEntryRepository implements TimeEntryRepository {
 
     private Map<Long, TimeEntry> entryMap = new HashMap<Long, TimeEntry>(100);
@@ -31,8 +30,8 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         return entryMap.get(id);
     }
 
-    public TimeEntry delete(long id) {
-        return entryMap.remove(id);
+    public void delete(long id) {
+        entryMap.remove(id);
     }
 
     public TimeEntry find(long id) {
