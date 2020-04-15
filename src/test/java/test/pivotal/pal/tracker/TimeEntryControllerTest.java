@@ -58,6 +58,7 @@ public class TimeEntryControllerTest {
 
         ResponseEntity<TimeEntry> response = controller.read(timeEntryId);
 
+        System.out.println(timeEntryId + " " + response.getBody());
         verify(timeEntryRepository).find(timeEntryId);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isEqualTo(expected);
